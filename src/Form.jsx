@@ -32,11 +32,11 @@ export default function Form() {
 	}
 
 	return <form onSubmit={(e) => handleSubmit(e)} style={{ width: '50%', gap: '20px', display: 'flex', flexDirection: 'column', margin: 'auto' }}>
-		<input onChange={(e) => setName(e.target.value)} value={name} type={'text'} name='name' placeholder="enter your name" />
-		<input onChange={(e) => setPhone(e.target.value)} value={phone} type={'text'} name='phone' placeholder="enter your phone" />
-		<input onChange={(e) => setEmail(e.target.value)} value={email} type={'email'} name='email' placeholder="enter your email" />
-		<input onChange={(e) => setCountry(e.target.value)} value={country} type={'text'} name='country' placeholder="enter your country" />
-		<input onChange={(e) => setAge(e.target.value)} value={age} type={'number'} name='age' placeholder="enter your age" />
+		<input onChange={(e) => setName(e.target.value)} value={name}  name='name' placeholder="enter your name" required/>
+		<input onChange={(e) => setPhone(e.target.value)} value={phone}  name='phone' placeholder="enter your phone" required/>
+		<input onChange={(e) => setEmail(e.target.value)} value={email} type={'email'} name='email' placeholder="enter your email" required/>
+		<input onChange={(e) => setCountry(e.target.value)} value={country}  name='country' placeholder="enter your country" required/>
+		<input onChange={(e) => setAge(e.target.value)} value={age} type={'number'} name='age' placeholder="enter your age" required/>
 		<button type="submit">Submit</button>
 	</form>;
 }
