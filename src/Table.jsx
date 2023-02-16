@@ -31,6 +31,7 @@ function Table() {
       else if (a[key] === b[key]) return 0;
       return -1;
     });
+	 setUsers(sorted)
   };
 
   const handleDelete = (id) => {
@@ -48,7 +49,7 @@ function Table() {
   }, []);
 
   const handleSearch = (value) => {
-    if (value.trim()) setQuery(value.trim());
+   setQuery(value.trim());
   };
 
   return (

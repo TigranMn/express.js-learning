@@ -16,7 +16,7 @@ app.get("/api/users", (req, res) => {
 
 app.post("/api/user", (req, res) => {
   const newUser = req.body;
-  addUser(res, (err, result) => {
+  addUser(newUser, (err, result) => {
     if (err) res.status(500).json({ error: err.message });
     else res.json(result);
   });
@@ -54,13 +54,14 @@ function deleteUserById(id, cb) {
    });
 }
 
-function addUser(res, cb){
+function addUser(newUser, cb){
   fs.readFile(dataPath, 'utf8', (err, data) => {
       let users = JSON.parse(data);
         users.push(newUser)
       fs.writeFile(dataPath, JSON.stringify(users), (err) => {
-         if (err) throw new Error('Something went wrong');
-         res.json(newUser);
+         if (err) return cb(err);
+			cb(null, {succes: true})
+
       });
    });
 }
